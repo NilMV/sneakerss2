@@ -3,6 +3,6 @@
   <h3><%= link_to @entry.title, @entry.url %></h3>
   <i>published on <%= @entry.published %> by <%= @entry.author %></i>
   <p>
-    <%= @entry.content.html_safe %>
+    <%= if @entry.content.nil? then  @entry.content else @entry.content.html_safe end %>
   </p>
 </div>
