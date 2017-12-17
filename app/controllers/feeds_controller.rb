@@ -1,8 +1,15 @@
 class FeedsController < ApplicationController 
   before_action :set_feed, only: [:show, :edit, :update, :destroy]
   
+
   def index
-    @feeds = Feed.all
+    feeds =  $redis.get("feeds")
+    if feeds.nil?
+      feeds = Feed.all.to_json
+      $redis.set("feeds", feeds)
+      $redis.expire("feeds",3.hour.to_i)
+    end
+    @feeds = JSON.load feeds
   end
    
   def show

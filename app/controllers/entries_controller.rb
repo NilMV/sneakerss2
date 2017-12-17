@@ -5,6 +5,10 @@ class EntriesController < ApplicationController
     @entries = @feed.entries.order('published desc')
   end
 
+  #def index
+  #  @entries = @feed.entries.order('published desc')
+  #end
+
   def show
     @entry = Entry.find(params[:id])
   end
@@ -14,3 +18,4 @@ class EntriesController < ApplicationController
     @feed = Feed.find(params[:id])
   end
 end
+
