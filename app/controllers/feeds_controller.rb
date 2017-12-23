@@ -3,6 +3,7 @@ class FeedsController < ApplicationController
   
 
   def index
+   
     feeds =  $redis.get("feeds")
     if feeds.nil?
       feeds = Feed.all.to_json
@@ -14,6 +15,7 @@ class FeedsController < ApplicationController
    
   def show
     @feed
+    authorize! :edit, @feed
   end
 
   def new 
@@ -22,6 +24,7 @@ class FeedsController < ApplicationController
 
   def edit 
     @feed
+    authorize! :edit, @feed
   end
   
   def create

@@ -32,6 +32,16 @@ gem 'jbuilder', '~> 2.5'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+gem 'feedjira'
+gem 'elasticsearch-model'
+gem 'elasticsearch-rails'
+gem 'rack-mini-profiler'
+gem 'redis'
+gem 'redis-namespace'
+gem 'redis-rails'
+gem 'redis-rack-cache'
+gem 'devise'
+gem 'cancancan', '~> 2.0'
 
 
 
@@ -53,12 +63,3 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby] 
 
-gem 'feedjira'
-gem 'elasticsearch-model'
-gem 'elasticsearch-rails'
-gem 'rack-mini-profiler'
-gem 'redis'
-gem 'redis-namespace'
-gem 'redis-rails'
-gem 'redis-rack-cache'
-gem 'devise'

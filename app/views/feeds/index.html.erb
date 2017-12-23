@@ -19,14 +19,17 @@
         <td><%= feed['url'] %></td>
         <td><%= feed['description'] %></td>
         <td><%= link_to 'Show', feed_path(feed['id']) %></td>
-        <td><%= link_to 'Edit', edit_feed_path(feed['id']) %></td>
-        <td><%= link_to 'Destroy', feed, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if current_user && current_user.superadmin_role? && current_user.admin_role? %>
+          <td><%= link_to 'Edit', edit_feed_path(feed['id']) %></td>
+          <td><%= link_to 'Destroy', feed, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New feed', new_feed_path %>
+<% if current_user && current_user.superadmin_role? && current_user.admin_role? %>
+  <%= link_to 'New feed', new_feed_path %>
+<% end %>
 <%= link_to 'Search', search_path %>
