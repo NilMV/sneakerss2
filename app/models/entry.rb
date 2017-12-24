@@ -2,6 +2,7 @@ require 'elasticsearch/model'
 
 class Entry < ApplicationRecord
   belongs_to :feed
+  
   #elastic
   include Elasticsearch::Model
   include Elasticsearch::Model::Callbacks
